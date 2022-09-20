@@ -1,3 +1,4 @@
+const pageHeader = document.querySelector('header');
 const cards = document.querySelectorAll('.cards__item');
 const contentTitle = document.querySelector('.content__title');
 const continueBtn = document.querySelector('.cards__button');
@@ -36,17 +37,27 @@ const getLanguages = async (language) => {
         }
     );
 
-    if (language === 'ru') {
-        cards.forEach((card) => {
-            card.classList.add('ru');
-        });
-        contentTitle.style.fontSize = '32px';
-    }
+    if (language === 'es') {
+        pageHeader.classList.add('header--es');
+    }  
 
     if (language === 'fr') {
         cards.forEach((card) => {
-            card.classList.add('fr');
+            card.classList.add('card--fr');
         });
+        pageHeader.classList.add('header--fr');
+    }
+
+    if (language === 'nl') {
+        pageHeader.classList.add('header--nl');
+    }  
+
+    if (language === 'ru') {
+        cards.forEach((card) => {
+            card.classList.add('card--ru');
+        });
+        contentTitle.classList.add('content__title--ru');
+        pageHeader.classList.add('header--ru');
     }
 
     return languageList;
